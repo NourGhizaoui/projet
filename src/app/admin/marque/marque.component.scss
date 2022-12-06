@@ -1,0 +1,31 @@
+img {
+    height: 200px;
+    width: 200px;
+}
+h1{
+    text-align: center;
+    color: #DC143C	;
+    font-weight: bolder;
+    margin-top: 30px;
+
+}
+.card {
+    padding: 20px;
+    margin: 50px;
+    //display: block;
+    display: flex;
+   flex-direction: row;
+    justify-content: space-around;
+}
+
+.card img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.card img:hover {
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}

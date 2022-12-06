@@ -1,0 +1,65 @@
+
+<section class="ftco-section">
+    <div class="container">
+    <div class="row justify-content-center">
+    <div class="col-md-6 text-center mb-5">
+    <h1 class="heading-section">Contactez Nous</h1>
+    </div>
+    </div>
+    <div class="row justify-content-center">
+    <div class="col-lg-10">
+    <div class="wrapper img" style="background-image: url(assets/pub/0.jpg);">
+    <div class="row">
+    <div class="col-md-9 col-lg-7">
+    <div class="contact-wrap w-100 p-md-5 p-4">
+    <h2 class="mb-4">Prenez contact avec nous</h2>
+    <div id="form-message-warning" class="mb-4"></div>
+    <div id="form-message-success" class="mb-4">
+   
+Votre message a été envoyé, merci !
+    </div>
+    <form [formGroup]="contactForm" (ngSubmit)="ajoutercontact()" method="POST" id="contactForm" name="contactForm" class="contactForm">
+    <div class="row">
+    <div class="col-md-6">
+    <div class="form-group">
+    <label class="label" for="name">Nom & Prénom</label>
+    <input type="text" class="form-control" name="name" id="name" formControlName="nometprenom" placeholder="Name">
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="form-group">
+    <label class="label" for="email">Email address</label>
+    <input type="email" class="form-control" name="email" id="email" formControlName="email" placeholder="Email">
+    </div>
+    </div>
+    <div class="col-md-12">
+    <div class="form-group">
+    <label class="label" for="subject">Sujet</label>
+    <input type="text" class="form-control" name="subject" id="subject" formControlName="sujet" placeholder="Subject">
+    </div>
+    </div>
+    <div class="col-md-12">
+    <div class="form-group">
+    <label class="label" for="#">Message</label>
+    <textarea name="message" class="form-control" id="message" cols="30" rows="4" formControlName="message" placeholder="Message"></textarea>
+    </div>
+    </div>
+    <div class="col-md-12">
+    <div class="form-group">
+    <input type="submit" value="Envoyer Message" (click)="ajoutercontact()"   routerLink="/acceuil" class="btn btn-primary">
+    <div class="submitting"></div>
+    </div>
+    </div>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <br>
+   
+    <app-footer></app-footer>

@@ -1,0 +1,30 @@
+<div class="text-center" *ngIf="SpinnerActive">
+    <img src="{{Spinner}}" alt="loading">
+</div>
+<div class="row" *ngIf="dataloader">
+    <ng-container *ngFor="let item of Fashiondata">
+        <div class="card col-md-3">
+            <img src="{{item.productimage}}" alt="">
+            <h5 style="font-weight:bolder">
+                {{item.marque}}
+            </h5>
+            <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                {{item.productname}}</h5>
+               
+            <p><strong>Prix :</strong> {{item.productprice}} DT</p>
+            <br>
+           
+            <span *ngIf="item.dispo" class="badge rounded-pill bg-success">Disponible</span> <br>
+            <span *ngIf="item.dispo==false" class="badge rounded-pill bg-danger">Non Disponible</span>
+            <br>
+           
+<br><br>
+<button (click)="supprimer(item.id)" class="button-56" role="button">Supprimer</button>
+        
+        </div>
+    </ng-container>
+</div>
+<br>
+
+
+<app-footer></app-footer>

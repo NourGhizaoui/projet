@@ -1,0 +1,117 @@
+.card-top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: .25rem;
+}
+
+
+.item img {
+    width: 64px;
+}
+
+.item {
+    margin: 0px 15px;
+    text-align: center;
+}
+
+.item a:hover {
+    color: blue;
+}
+
+.card {
+    padding: 20px;
+    margin: 50px;
+}
+
+.card img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.card img:hover {
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+@keyframes fadeIn{
+    0%{
+        opacity:0;
+        transform:translateY(-4rem) scale(0.4);
+    }
+}
+
+ .carousel .slide .carousel-caption span{
+    color:#fff;
+    display: block;
+    font-size: 9rem;
+    text-shadow: 0 0.5rem 1rem rgba(0,0,0,0.7);
+    animation: fadeIn .2s linear;
+    animation: fadeIn .2s linear backwards ;
+    text-transform: uppercase;
+
+
+}
+.carousel .slide .carousel-caption span:hover{
+    color:rgb(237, 96, 160);
+
+}
+.carousel .slide .carousel-caption h3{
+
+    font-size: 1.7rem;
+    color:#fff;
+    text-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+    animation:fadeIn .2s linear backwards .3s;
+}
+
+.carousel .slide .carousel-caption .btn {
+
+    animation: fadeIn .2s linear backwards .3s;
+}
+
+.image {
+    padding: 20px;
+    margin: 50px;
+ 
+    display: flex;
+   flex-direction: row;
+    justify-content: space-around;
+}
+
+.image img {
+    width: 500px;
+    height: 400px;
+    margin-bottom: 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.image img:hover {
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+hr {
+    text-align: center;
+    border: none;
+    border-top: 3px double #191970;
+    color: #191970;
+    overflow: visible;
+   
+    height: 5px;
+}
+
+hr:after {
+    background: #fff;
+    content: '§';
+    padding: 0 4px;
+    position: relative;
+    top: -13px;
+}
+
+.x{background-color: white;width: 1520px;height: 300px;}

@@ -1,0 +1,94 @@
+<div class="text-center" *ngIf="SpinnerActive">
+    <img src="{{Spinner}}" alt="loading">
+</div>
+
+<ul>
+    <li class="nav-item" style="list-style-type:none">
+        <app-search (searchTextChanged)="onSearchTextentered($event)"></app-search>
+       </li></ul>
+
+
+<div class="row" *ngIf="dataloader">
+    <div style="display:flex;flex-wrap:wrap">
+    <ng-container *ngFor="let item of AllData">
+       
+        <div  *ngIf="searchText === '' || item.marque.toLowerCase().includes(searchText)">
+
+        <div class="card col-md-8">
+            <img src="{{item.productimage}}" alt="">
+            <h5 style="font-weight:bolder">
+                {{item.marque}}
+            </h5>
+            <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                {{item.productname}}</h5>
+                           
+            <p><strong>Price:</strong> {{item.productprice}} DT</p>
+            <br>
+           
+            <span *ngIf="item.dispo" class="badge rounded-pill bg-success">Disponible</span> <br>
+            <span *ngIf="item.dispo==false" class="badge rounded-pill bg-danger">Non Disponible</span>
+          
+            <br>
+          
+<br><br>
+<button (click)="supprimer(item.id)" class="button-56" role="button">Supprimer</button>
+<button type="button" class="button" style="vertical-align:middle" data-bs-toggle="modal" (click)="update(item)" data-bs-target="#exampleModal">
+  Modifier
+   </button>
+        </div>
+        </div>
+    </ng-container>
+    </div>
+
+</div>
+<br>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <div class="fa-3x">
+                <i class="fa-solid fa-cog fa-spin"></i></div> <h5 class="modal-title" id="exampleModalLabel">Modifier le produit</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <form [formGroup]="form" method="post" >
+                <div class="row">
+                    <div>
+                        <label for="">Nom du produit</label>
+                        <input type="text" formControlName="productname" class="form-control" placeholder="nom">
+                    </div><br><br><br>
+                    <div>
+                        <label for="">Marque du produit</label>
+                        <input type="text" formControlName="marque" class="form-control" placeholder="marque">
+                    </div><br><br><br>
+                    <div>
+                        <label for="">Prix du produit</label>
+                        <input type="number"  formControlName="productprice" class="form-control" placeholder="prix">
+                    </div><br><br><br>
+                    <div>
+                       
+                        <label for="image"> <span><i class="material-icons" style="font-size:36px"> 
+                        </i> </span>choisir une image</label>
+                            <img src="{{base64}}" alt=""> 
+                            <input type="file" class="form-control" (change)="getImagePath($event)" >
+                        </div><br><br><br>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button"    class="btn btn-success" (click)="modifier()">Enregistrer</button>
+                      </div>
+                    </div>
+                    </form>
+                </div>
+    
+      </div>
+    </div>
+  </div>
+  
+
+
+<br>
+<app-footer></app-footer>

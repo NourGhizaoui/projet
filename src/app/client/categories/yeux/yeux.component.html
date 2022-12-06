@@ -1,0 +1,32 @@
+<div class="text-center" *ngIf="SpinnerActive">
+    <img src="{{Spinner}}" alt="loading">
+</div>
+<div class="row"  *ngIf="dataloader">
+    <ng-container *ngFor="let item of Mobiledata">
+        <div class="card col-md-3">
+            <img src="{{item.productimage}}" alt="">
+            <h5 style="font-weight:bolder">
+                {{item.marque}}
+            </h5>
+            <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                {{item.productname}}</h5>
+               
+            <p><strong>Prix :</strong> {{item.productprice}} DT</p>
+            <br>
+           
+            <span *ngIf="item.dispo" class="button-33" role="button">Disponible</span> <br>
+            <span *ngIf="item.dispo==false" class="button-34" role="button">Non Disponible</span>
+            <br>
+            <a [routerLink]="['/detail', item.id]"> <button [routerLink]="['/detail', item.id]" class="button" style="vertical-align:middle">
+                <span>
+            Découvrir </span></button></a>
+<br><br>
+
+
+            <button class="b" (click)="addcart(item.id)" class="button-85" role="button">Ajouter au panier</button>
+        </div>
+    </ng-container>
+</div>
+<br>
+<app-footer></app-footer>
+

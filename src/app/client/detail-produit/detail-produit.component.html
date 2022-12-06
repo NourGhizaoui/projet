@@ -1,0 +1,48 @@
+
+
+    <div *ngIf="produit" class="card" style="width:100px;height: 300px;" style="text-align: center;">
+        <img src="{{produit.productimage}}" class="mx-auto d-block" >
+        <div class="card-body" >
+         <strong style="font-size:20px">{{produit.marque}}</strong><br>
+         <p style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">{{produit.productname}}</p><br>
+         <p style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">{{produit.description}}</p><br>
+         
+         <strong style="font-size:20px">{{produit.productprice}} DT</strong><br>
+         
+         <span *ngIf="produit.dispo" class="button-33" role="button">Disponible</span> <br><br>
+         <span *ngIf="produit.dispo==false" class="button-34" role="button">Non Disponible</span><br><br>
+
+         <span class="button-73" role="button">Date de Fabrication:  {{produit.datefabrication}} </span><br><br>
+         <span class="button-73" role="button">Date de Peremption:  {{produit.dateperemption}}</span> <br><br>
+       
+     
+         <form [formGroup]="employeForm">
+        
+         <div formArrayName="commentaire">
+             <div *ngFor="let d of lesCommentaires.controls; index as i">
+                 <strong> Commentaire n° {{i}}</strong>
+                 <div [formGroupName]="i">
+                     <label>Mail :</label>
+                     <input type="text" formControlName="email"> <br><br>
+                     
+                     <label>Message :</label>
+                     <input type="text" formControlName="message"> <br>
+                
+                 </div>
+             </div>
+           
+         </div>
+         <button (click)="ajouterDiplome()" class="button-74" role="button">Ajouter un commentaire</button><br><br>
+         <button (click)="ajouterAcc()" class="button-74" role="button">Envoyer et enregistrer votre commentaire</button> <br> 
+
+         </form>
+
+
+         
+         <br><br><br>
+         <button routerLink="/tousprod" class="button">Retour</button>
+         </div>
+     </div>
+     <br>
+     <app-footer></app-footer>
+     
